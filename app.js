@@ -22,13 +22,27 @@ submitBtn.addEventListener('click', ()=> {
     
     if (Number(guessInput.value) < targetNumber){
         resultArea.textContent = 'TOO LOW';
-    } if (Number(guessInput.value) > targetNumber){
+    } else if (Number(guessInput.value) > targetNumber){
         resultArea.textContent = 'TOO HIGH';
-    } if (Number(guessInput.value) === targetNumber){
+    } else {
         resultArea.textContent = 'YOU WIN';
+    } 
+    
+    if (count <= 0) {
+        document.getElementById('submit-btn').disabled = true;
+        guessArea.textContent = 'GAME OVER';
+    } else {
+        guessArea.textContent = `You have ${count} left`;
     }
-   
-    guessArea.textContent = `You have ${count} left`;
+
+    // } if (Number(guessInput.value) < targetNumber){
+    //     resultArea.textContent = 'TOO LOW';
+    // } if (Number(guessInput.value) > targetNumber){
+    //     resultArea.textContent = 'TOO HIGH';
+    // } if (Number(guessInput.value) === targetNumber){
+    //     resultArea.textContent = 'YOU WIN';
+    //     count = '';
+    // }
+
+    // guessArea.textContent = `You have ${count} left`;
 });
-
-
