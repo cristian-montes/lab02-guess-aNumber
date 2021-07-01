@@ -20,12 +20,12 @@ submitBtn.addEventListener('click', ()=> {
     
     count --;
     
-    if (Number(guessInput.value) < targetNumber){
+    if (guessInput.value < targetNumber){
         resultArea.textContent = 'TOO LOW';
-    } else if (Number(guessInput.value) > targetNumber){
+    } else if (guessInput.value > targetNumber){
         resultArea.textContent = 'TOO HIGH';
     } else {
-        resultArea.textContent = 'YOU WIN';
+        resultArea.textContent = 'YOU WON';
     } 
     
     if (count <= 0) {
@@ -35,14 +35,5 @@ submitBtn.addEventListener('click', ()=> {
         guessArea.textContent = `You have ${count} left`;
     }
 
-    // } if (Number(guessInput.value) < targetNumber){
-    //     resultArea.textContent = 'TOO LOW';
-    // } if (Number(guessInput.value) > targetNumber){
-    //     resultArea.textContent = 'TOO HIGH';
-    // } if (Number(guessInput.value) === targetNumber){
-    //     resultArea.textContent = 'YOU WIN';
-    //     count = '';
-    // }
-
-    // guessArea.textContent = `You have ${count} left`;
+ 
 });
