@@ -1,39 +1,32 @@
 // import functions and grab DOM elements
+import { compareNums } from './utils.js';
 
-// initialize state
 
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+// GET DOM ELEMENTS
 const resultArea = document.getElementById('result-area');
 const guessInput = document.getElementById('guess-input');
 const submitBtn = document.getElementById('submit-btn');
 const guessArea = document.getElementById('guess-area');
 
+//MODIFED CONSTS'
 const targetNumber = Math.floor(Math.random() * 20);
+
 let count = 4;
 
 
-// EVENT LISTNER
+// EVENT LISTNER - SUBMIT BTN
 submitBtn.addEventListener('click', ()=> {
     
     count --;
+    const guessInputV = guessInput.value;
+    const funCompareNums = compareNums(guessInputV, targetNumber);
+    resultArea.textContent = funCompareNums;
     
-    if (guessInput.value < targetNumber){
-        resultArea.textContent = 'TOO LOW';
-    } else if (guessInput.value > targetNumber){
-        resultArea.textContent = 'TOO HIGH';
-    } else {
-        resultArea.textContent = 'YOU WON';
-    } 
     
-    if (count <= 0) {
+    if (count <= 0 || funCompareNums === 'YOU WON') {
         document.getElementById('submit-btn').disabled = true;
         guessArea.textContent = 'GAME OVER';
     } else {
         guessArea.textContent = `You have ${count} left`;
     }
-
- 
 });
